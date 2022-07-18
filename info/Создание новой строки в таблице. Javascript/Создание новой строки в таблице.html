@@ -1,0 +1,86 @@
+<table class="table">
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Удалить</th>
+    </tr>
+    <tr>
+        <td>Иван</td>
+        <td>Васильевич</td>
+        <td class="delete"><i class="fa fa-trash"></i></td>
+    </tr>
+    <tr>
+        <td>Влад</td>
+        <td>Анатольевич</td>
+        <td class="delete"><i class="fa fa-trash"></i></td>
+    </tr>
+</table>
+
+<form action="" id="form">
+    <input type="text" name="" class="name" placeholder="Введите имя">
+    <input type="text" name="" class="surname" placeholder="Введите фамилию">
+    <button type="submit" class="btn">Добавить строку</button>
+</form>
+
+<script>
+    var table = document.querySelector('.table');
+table.addEventListener('click', checkAct);
+
+function checkAct(event) {
+    if (event.target.tagName === 'TD' && event.target.className !== 'delete') {
+        editTd(event.target);
+    } else if ((event.target.classList.contains('fa-trash')) === true) {
+        event.target.closest('tr').remove();
+    }
+}
+
+function editTd(target) {
+    var input = document.createElement('input');
+    input.value = target.innerHTML;
+    target.innerHTML = '';
+    target.appendChild(input);
+    input.addEventListener('keypress',addChanges);
+}
+
+function addChanges(event) {
+    var newCreateInput = event.target;
+    var parent = newCreateInput.parentNode;
+    if(event.keyCode === 13) {
+        parent.innerHTML = newCreateInput.value;
+    }
+}
+
+var inputName = document.querySelector('.name');
+var inputSurname = document.querySelector('.surname');
+var btn = document.querySelector('.btn');
+var tr = document.createElement('tr');
+
+function definitionsName(name) {
+    var td = document.createElement('td');
+    td.innerHTML = name.value;
+    tr.appendChild(td);
+}
+
+function definitionsSurname(surname) {
+    var td = document.createElement('td');
+    td.innerHTML = surname.value;
+    tr.appendChild(td);
+}
+
+btn.addEventListener('click',addTr);
+
+function addTr() {
+    if (inputName.value === '' || inputSurname.value === '') {
+        return alert('Заполните поля Имя и Фамилия');
+    }
+    definitionsName(name);
+    definitionsSurname(surname);
+    var td = document.createElement('td');
+    var i = document.createElement('i');
+    i.classList.add('fa fa-trash');
+    td.appendChild(i);
+    tr.appendChild(td);
+    table.appendChild(tr);
+}
+
+</script>

@@ -1,0 +1,45 @@
+.colorizer__container-for-choose-rgb {
+  display:flex;
+  flex-direction: row;
+  width:70px;
+  height:25px;
+  margin-left:0px;
+  margin-right:0px;
+  margin-top:0px;
+  margin-bottom:0px;
+  background-color: #3c3c3c;
+  color: #BDBDBD;
+  border:1px solid #5f5f5f;
+  border-radius: 2px;
+}
+
+.colorizer__container-for-choose-rgb_text {
+  width:7px;
+  height:10px;
+  margin-left:10px;
+  margin-right:auto;
+  margin-top:7px;
+  margin-bottom:8px;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  background-color: #3c3c3c;
+  color: #BDBDBD;
+}
+
+
+.colorizer__container-for-choose-rgb_digits {
+  width:22px;
+  height:10px;
+  margin-left:auto;
+  margin-right:10px;
+  margin-top:7px;
+  margin-bottom:8px;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  background-color: #3c3c3c;
+  color: #BDBDBD;
+}

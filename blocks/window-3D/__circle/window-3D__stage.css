@@ -1,0 +1,8 @@
+.window-3D__stage {
+    width: 280px;
+    height: 280px;
+    display: inline-block;
+    margin: 20px;
+    -webkit-perspective: 1200px;
+    -webkit-perspective-origin: 50% 50%;
+  }

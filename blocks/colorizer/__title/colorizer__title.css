@@ -1,0 +1,14 @@
+.colorizer__title {
+  margin-top: 20px;
+  margin-left: 82px;
+  margin-right:82px;
+  margin-bottom: 0px;
+  width: calc(100% - 2*82px);
+  height: 22px;
+  font-family: Lato;
+  font-style: SemiBold;
+  font-size: 18px;
+  line-height: 100%;
+  color: #FFFFFF;
+  white-space: nowrap;
+}

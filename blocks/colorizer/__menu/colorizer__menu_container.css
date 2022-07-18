@@ -1,0 +1,13 @@
+.colorizer__menu_container {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.colorizer__menu_container:nth-child(2) {
+  margin-top: 17px;
+}

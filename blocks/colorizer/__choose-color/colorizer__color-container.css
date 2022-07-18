@@ -1,0 +1,12 @@
+.colorizer__color-container {
+  width:245px;
+  height:25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left:5px;
+  margin-right:5px;
+  margin-top:7px;
+  margin-bottom:0px;
+  background-color: #3c3c3c;
+}

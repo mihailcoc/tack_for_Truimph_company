@@ -1,0 +1,13 @@
+.colorizer__color-addition {
+  margin-top: 32px;
+  margin-bottom: 0px;
+  margin-left: 33px;
+  margin-right: 32px;
+  width:255px;
+  height:380px;
+  background-color: #3c3c3c;
+  border-radius: 4px;
+  display:flex;
+  flex-direction: column;
+  border:1px solid #5f5f5f;
+}

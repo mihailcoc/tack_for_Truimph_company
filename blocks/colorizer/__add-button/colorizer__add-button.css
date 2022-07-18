@@ -1,0 +1,11 @@
+.colorizer__add-button {
+  width:256px;
+  height:35px;
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  text-align: center;
+  background-color: #53CBF1;
+  border-radius: 20px;
+}

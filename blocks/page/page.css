@@ -1,0 +1,8 @@
+.page {
+  max-width: 1280px;
+  display:flex;
+  flex-direction: row;
+  background-color: #E5E5E5;
+  margin-left:auto;
+  margin-right: auto;
+}

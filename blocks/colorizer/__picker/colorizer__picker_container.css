@@ -1,0 +1,12 @@
+.colorizer__picker_container {
+  position:relative;
+  width:245px;
+  height:220px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  margin-right:5px;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  background-color: #3c3c3c;
+}

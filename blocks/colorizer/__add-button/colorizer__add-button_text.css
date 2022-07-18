@@ -1,0 +1,16 @@
+.colorizer__add-button_text {
+    margin-top:10px;
+    margin-bottom:auto;
+    margin-left:auto;
+    margin-right:auto;
+    width:55px;
+    height:15px;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14.4px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    white-space:pre-line;
+  }

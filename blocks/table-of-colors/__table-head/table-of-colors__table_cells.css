@@ -1,0 +1,12 @@
+.table-of-colors__table_cell {
+  margin-left: 15px;
+  width:42px;
+  height:22px;
+  font-style: Lato;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21.6px;
+  white-space: nowrap;
+  color:#FFFFFF;
+  background-color: #424242;
+}

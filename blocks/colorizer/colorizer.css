@@ -1,0 +1,12 @@
+.colorizer {
+  width: 320px;
+  height: 645px;
+  margin-left: 38px;
+  margin-right: auto;
+  margin-top: 146px;
+  margin-bottom: auto;
+  background-color: #313131;
+  display:flex;
+  flex-direction: column;
+  border-radius: 15px;
+}

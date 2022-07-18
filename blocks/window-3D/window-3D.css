@@ -1,0 +1,13 @@
+.window-3D {
+  width: 740px;
+  height: 497px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #313131;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+

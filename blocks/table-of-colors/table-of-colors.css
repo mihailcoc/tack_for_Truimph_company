@@ -1,0 +1,9 @@
+.table-of-colors {
+  margin-top: 146px;
+  width: 679px;
+  min-height: 380px;
+  background-color: #313131;
+  display:flex;
+  flex-direction: column;
+  border-radius: 15px;
+}

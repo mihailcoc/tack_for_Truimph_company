@@ -1,0 +1,22 @@
+.window-3D__circle{
+  display: inline-block;
+  height: 280px;
+  width: 280px;
+  margin-left: calc((640px / 2) - 280px / 2);
+  margin-top: calc((360px / 2) - 320px / 2);
+  border-radius: 50%;
+  position: relative;
+  background: -webkit-radial-gradient(50% 10%, circle cover, #5cabff, #5cabff 0%, #055194 60%, #062745 100%);
+}
+.window-3D__circle:before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: -webkit-radial-gradient(55% 90px, circle, #ffffff, rgba(255, 255, 255, 0) 23%);
+  -webkit-filter: blur(5px);
+  z-index: 2;
+}

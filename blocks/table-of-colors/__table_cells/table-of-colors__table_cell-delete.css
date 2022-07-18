@@ -1,0 +1,12 @@
+.table-of-colors__table_cell-delete {
+    width:20px;
+    height:20px;
+    color:#8d8d8d;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table-of-colors__table_cell-delete:hover {
+    color:#CA4C4c;
+}

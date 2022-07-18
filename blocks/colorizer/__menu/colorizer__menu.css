@@ -1,0 +1,11 @@
+.colorizer__menu {
+  width: calc(100% - 15px - 27px);
+  height: 97px;
+  margin-left: 15px;
+  margin-right: 25px;
+  margin-top: 27px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

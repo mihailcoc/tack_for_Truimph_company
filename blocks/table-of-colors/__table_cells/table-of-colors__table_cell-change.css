@@ -1,0 +1,13 @@
+.table-of-colors__table_cell-change {
+    width:20px;
+    height:20px;
+    color:#8d8d8d;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-of-colors__table_cell-change:hover {
+    color: #53CBF1;
+}

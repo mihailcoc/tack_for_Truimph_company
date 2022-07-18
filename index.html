@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="Lib.js" ></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="pages/pages.css">
+        <title>Окно 3Д</title>
+    </head>
+    <body class="page">
+        <div class="section">
+            <div class="table-of-colors">
+                <div class="table-of-colors__title-container">
+                    <h3 class="table-of-colors__title">Таблица цветов</h3>
+                    <div class="table-of-colors__icon_container">
+                      <div class="table-of-colors__icon">&#128190</div>
+                      <div class="table-of-colors__icon">&times</div>
+                    </div>
+                </div>
+                <div class="table-of-colors__container">
+                    <table class="table-of-colors__table" align=center border=1 cellspacing=0 cellpadding=0>
+                        <tr>
+                            <th class="table-of-colors__table_color"><h4 class="table-of-colors__table_cell">Цвет</h4></th>
+                            <th class="table-of-colors__table_name"><h4 class="table-of-colors__table_cell">Название</h4></th>
+                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Тип</h4></th>
+                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Код</h4></th>
+                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Изменить</h4></th>
+                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Удалить</h4></th>
+                        </tr>
+                        <tr class="table-of-colors__table_color">
+                            <td><div class="table-of-colors__table_cell-color"></div></td>
+                            <td><h4 class="table-of-colors__table_cell-name">Мятное утро</h4></td>
+                            <td><h4 class="table-of-colors__table_cell-type">base</h4></td>
+                            <td><div class="table-of-colors__table_cell-code">#86EAE9</div></td>
+                            <td><div class="table-of-colors__table_cell-change">&#128393</div></td>
+                            <script>
+                                var tds = document.querySelectorAll('td');
+                                for (var i=4; i < tds.length; i=i+5){
+                                    tds[i].addEventListener('click', function func(){
+                                         var input = document.createElement('input');
+                                         input.value = this.innerHTML;
+                                         this.innerHTML = '';
+                                         this.appendChild(input);
+
+                                         var td = this;
+                                         input.addEventListener('blur', function(){
+                                            td.innerHTML = this.value;
+                                            td.addEventListener('click', func);
+                                         });
+
+                                         this.removeEventListener('click',func);
+                                    });
+                                }
+
+                            </script>
+                            <td><div class="table-of-colors__table_cell-delete">&#128465</div></td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="table-of-colors__button-container">
+                    <div class="table-of-colors__button-add">Добавить цвет</div>
+                </button>
+            </div>
+            <div class="window-3D">
+                <h3 class="window-3D__title">Окно-3Д</h3>
+                <div class="window-3D__screen">
+                    <section class="window-3D__stage">
+                        <figure class="window-3D__circle"><span class="window-3D__shadow"></span></figure>
+                      </section>
+                </div>
+            </div>
+        </div>
+        <div class="colorizer">
+            <h3 class="colorizer__title">Добавление цвета</h3>
+            <div class="colorizer__menu">
+                <div class="colorizer__menu_container">
+                    <h4 class="colorizer__menu_name-field">Название цвета</h4>
+                    <p class="colorizer__menu_input-name"><input class="colorizer__menu_input-field" name="name" placeholder="Введите название"></p>
+                </div>
+                <div class="colorizer__menu_container">
+                    <h4 class="colorizer__menu_name-field">Выберите тип</h4>
+                            <select id="selectID" class="colorizer__menu_input-name">
+                                <option value="MAIN"><div class="colorizer__menu_input-field">main</div></option>
+                                <option value="PRIMARY"><div class="colorizer__menu_input-field">Primary</div></option>
+                                <option value="SECONDARY"><div class="colorizer__menu_input-field">Secondary</div></option>
+                                <option value="BASE"><div class="colorizer__menu_input-field">Base</div></option>
+                            </select>
+                </div>
+            </div>
+            <div class="colorizer__color-addition">
+                <div class="colorizer__picker_container">
+                    <div class="picker" id="primary_block" >
+
+                        <div id="line">
+                          <div id="arrows">
+                            <div class="left_arrow"></div>
+                            <div class="right_arrow"></div>
+                          </div>
+                        </div>
+
+                        <div id="block_picker">
+                          <img src="https://lh3.googleusercontent.com/-8Dm4nhAOssQ/T_IqwyIFXmI/AAAAAAAAACA/4QKmS7s_otE/s256/bgGradient.png" class="bk_img">
+                          <div class="circle" id="circle"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="colorizer__color-container">
+                    <div class="colorizer__choose-color_color">Color</div>
+                    <div class="colorizer__choose-color_hex">
+                        <div class="colorizer__choose-color_hex_text">
+                            HEX
+                        </div>
+
+                    </div>
+                    <div class="colorizer__choose-color_color-number">
+                        <div class="colorizer__choose-color_color-number_text">
+                            FFFFFF
+                        </div>
+                    </div>
+                    <div id="out_color" class="out_color"></div>
+                </div>
+                <div class="colorizer__color-container">
+                    <div class="colorizer__container-for-choose-rgb">
+                        <div class="colorizer__container-for-choose-rgb_text">R</div>
+                        <div class="colorizer__container-for-choose-rgb_digits">0.01</div>
+                    </div>
+                    <div class="colorizer__container-for-choose-rgb">
+                        <div class="colorizer__container-for-choose-rgb_text">G</div>
+                        <div class="colorizer__container-for-choose-rgb_digits">0.01</div>
+                    </div>
+                    <div class="colorizer__container-for-choose-rgb">
+                        <div class="colorizer__container-for-choose-rgb_text">B</div>
+                        <div class="colorizer__container-for-choose-rgb_digits">0.01</div>
+                    </div>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+
+
+            <script type="text/javascript" src="picker.js"></script>
+            <script type="text/javascript">
+                picker.init();
+            </script>
+            <div class="colorizer__add-button">
+                <h6 class="colorizer__add-button_text">Добавить</h6>
+            </div>
+        </div>
+    </body>
+    <script>
+
+    </script>
+</html>

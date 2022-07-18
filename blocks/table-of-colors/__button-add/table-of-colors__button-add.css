@@ -1,0 +1,17 @@
+.table-of-colors__button-add {
+  width:94px;
+  height:15px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14.4px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  white-space:pre-line;
+}

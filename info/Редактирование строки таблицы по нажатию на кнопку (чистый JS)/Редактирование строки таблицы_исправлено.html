@@ -1,0 +1,165 @@
+function insertRow(id) {
+    // получаем нашу кнопку и смотрим на ее текст, если Update - будем обновлять
+    var inputButton = document.getElementsByClassName('input_button')[0];
+    if (inputButton.innerText == "Update") {
+      updateRow(inputButton); // передадим кнопку в метод
+      return false;
+    }
+  
+    var tbody = document.getElementById(id),
+      row = document.createElement("tr"),
+      cellCounter = document.getElementById("myTable").rows.length;
+  
+    var checkbox = document.createElement("input");
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox_done';
+    checkbox.setAttribute('onclick', 'deleteRow(event)');
+  
+    var btnEdit = document.createElement("input");
+    btnEdit.type = 'image';
+    btnEdit.className = 'btn';
+    btnEdit.src = 'icons/edit.png';
+    btnEdit.value = "Edit"; // для наглядности
+    btnEdit.addEventListener('click', function() {
+      editButton(this);
+      return false;
+    });
+  
+    var btnDelete = document.createElement("input");
+    btnDelete.type = 'image';
+    btnDelete.className = 'btn';
+    btnDelete.src = 'icons/delete.png';
+    btnDelete.value = "Delete"; // для наглядности
+    btnDelete.setAttribute('onclick', 'delButton(event)');
+  
+    var tdNum = document.createElement("td");
+    tdNum.setAttribute('id', 'td1_id');
+    tdNum.className = 'td_num';
+    tdNum.appendChild(document.createTextNode(cellCounter));
+  
+    var tdDone = document.createElement("td");
+    tdDone.appendChild(checkbox);
+  
+    var tdItem = document.createElement("td");
+    tdItem.appendChild(document.createTextNode(document.getElementById("add_id").value));
+  
+    var tdQuant = document.createElement("td");
+    tdQuant.appendChild(document.createTextNode(document.getElementById("quant_id").value));
+  
+    var tdPrice = document.createElement("td");
+    tdPrice.appendChild(document.createTextNode(document.getElementById("price_id").value));
+  
+    var tdAction = document.createElement("td");
+    tdAction.setAttribute('colspan', '2');
+    tdAction.className = 'td_action';
+    tdAction.appendChild(btnEdit);
+    tdAction.appendChild(btnDelete);
+  
+    row.appendChild(tdNum);
+    row.appendChild(tdDone);
+    row.appendChild(tdItem);
+    row.appendChild(tdQuant);
+    row.appendChild(tdPrice);
+    row.appendChild(tdAction);
+  
+    tbody.appendChild(row);
+  
+    document.getElementsByClassName('input_add')[0].value = "";
+    document.getElementsByClassName('input_quant')[0].value = "";
+    document.getElementsByClassName('input_price')[0].value = "";
+  
+    return false;
+  }
+  
+  function updateRow(inputButton) {
+    // indexRow - не нужно уменьшать на единицу, так как первая - это заголовок
+    // получим изменяемую строку по индесу записанному в value кнопки обновления
+    var row = document.getElementById("myTable").rows[inputButton.value]; 
+    row.style.backgroundColor = "white";
+    // получим значения введенные в инпуты
+    var inputAdd = document.getElementsByClassName('input_add')[0];
+    var inputQuant = document.getElementsByClassName('input_quant')[0];
+    var inputPrice = document.getElementsByClassName('input_price')[0];
+    // обновим значения ячеек в строке
+    row.cells[2].innerText = inputAdd.value;
+    row.cells[3].innerText = inputQuant.value;
+    row.cells[4].innerText = inputPrice.value;
+    // поменяем значение кнопки обратно и очистим инпуты
+    inputButton.innerText = "Add";
+    inputButton.value = "";
+    inputAdd.value = "";
+    inputQuant.value = "";
+    inputPrice.value = "";
+  }
+  
+  function editButton(btn) {
+    //обработка редактирования строки...
+    // получим стркоу
+    var tr = btn.parentNode.parentNode;
+    tr.style.backgroundColor = "yellow";
+    
+    // получим значения из строки
+    var valueItem = tr.cells[2].innerText;
+    var valueQuantity = tr.cells[3].innerText;
+    var valuePrice = tr.cells[4].innerText;
+    // заполним инпуты значениями из строки
+    document.getElementsByClassName('input_add')[0].value = valueItem;
+    document.getElementsByClassName('input_quant')[0].value = valueQuantity;
+    document.getElementsByClassName('input_price')[0].value = valuePrice;
+    // получим нашу кнопку
+    var inputButton = document.getElementsByClassName('input_button')[0];
+    inputButton.innerText = "Update"; // меняем текст
+    inputButton.value = tr.cells[0].innerText; // в value будем хранить индекс строки
+    
+    // данный блок не работает в сниппете
+    // localStorage.setItem('DoneList', document.getElementById("tbody").innerHTML);
+  }
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Cart - Shopping List</title>
+    <link rel="shortcut icon" type="image/png" href="icons/shortcut_add.ico" />
+  </head>
+  
+  <body class="body">
+    <div class="menu">
+      <ul class="list">
+        <li class="li_index"><a class="link_index" href="index.html">Shopping list</a></li>
+        <li class="li"><a class="link" href="done.html">Done</a></li>
+        <li class="li"><a class="link" href="deleted.html">Deleted</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <h1 class="h1">Shopping List</h1>
+      <hr class="hr">
+      <div class="inputs">
+        <input class="input_add" type="text" id="add_id" placeholder="Add items to you Shopping List">
+        <input class="input_quant" type="text" id="quant_id" placeholder="Quant.">
+        <input class="input_price" type="text" id="price_id" placeholder="Price">
+        <button class="input_button" type="button" onclick="insertRow('myTable'); value=''">Add</button>
+      </div>
+    </div>
+  
+    <div class="table">
+      <table cellpadding="0" cellspacing="0" border="0" class="mytable" id="myTable" cellspacing="0" border="1">
+        <tbody id="tbody">
+          <tr id="tr_id" class="tr">
+            <td class='td'>#</td>
+            <td>Done</td>
+            <td>Item</td>
+            <td>Quantity</td>
+            <td>Price $</td>
+            <td colspan="2" width="100">Action</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </body>
+  <script src="js/main.js"></script>
+  
+  </html>
+  

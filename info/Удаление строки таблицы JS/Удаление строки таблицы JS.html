@@ -1,0 +1,94 @@
+function insertRow(id) {
+    var tbody = document.getElementById(id).getElementsByTagName("tbody")[0];
+    var row;
+    row = document.createElement("tr");
+    row.setAttribute("id", "tr_id");
+    var cellCounter = document.getElementById("myTable").rows.length;
+  
+    var td1 = document.createElement("td");
+    td1.setAttribute("id", "td1_id");
+    td1.appendChild(document.createTextNode(cellCounter));
+  
+    var td2 = document.createElement("td");
+    td2.setAttribute("id", "td2_id");
+    var checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("id", "checkbox_id");
+    checkbox.addEventListener("click", function() {
+      var row1 = document.getElementById("checkbox_id").parentNode.parentNode;
+      //        row1.parentNode.removeChild(row1);
+      console.log(row1);
+    });
+    td2.appendChild(checkbox);
+  
+    var td3 = document.createElement("td");
+    td3.setAttribute("id", "td3_id");
+    td3.appendChild(document.createTextNode(document.getElementById("add_id").value));
+  
+    var td4 = document.createElement("td");
+    td4.setAttribute("id", "td4_id");
+    td4.appendChild(document.createTextNode(document.getElementById("quant_id").value));
+  
+    var td5 = document.createElement("td");
+    td5.setAttribute("id", "td5_id");
+    td5.appendChild(document.createTextNode(document.getElementById("price_id").value));
+  
+    var td6 = document.createElement("td");
+    td6.setAttribute("id", "td6_id");
+    var btnEdit = document.createElement("input");
+    btnEdit.setAttribute("class", "btnEdit");
+    btnEdit.src = "icons/edit.png";
+    btnEdit.type = "image";
+    btnEdit.addEventListener('click', function() {
+      editButton();
+      return false;
+    });
+    td6.appendChild(btnEdit);
+  
+    var deleteButton = document.createElement("input");
+    deleteButton.setAttribute("class", "deleteButton");
+    deleteButton.src = "icons/delete.png";
+    deleteButton.type = "image";
+    deleteButton.addEventListener('click', function() {
+      delButton();
+      return false;
+    });
+    td6.appendChild(deleteButton);
+    td6.setAttribute("colspan", "2");
+    row.appendChild(td1);
+    row.appendChild(td2);
+    row.appendChild(td3);
+    row.appendChild(td4);
+    row.appendChild(td5);
+    row.appendChild(td6);
+    tbody.appendChild(row);
+  
+    localStorage.setItem("ShoppingList", document.getElementById("myTable").innerHTML);
+  }
+  <div class="table">
+    <table class="mytable" id="myTable" cellspacing="0" border="1">
+      <tbody id="tbody">
+        <tr id="tr_id" class="tr">
+          <td>
+            <font color="white">#</font>
+          </td>
+          <td>
+            <font color="white">Done</font>
+          </td>
+          <td>
+            <font color="white">Item</font>
+          </td>
+          <td>
+            <font color="white">Quantity</font>
+          </td>
+          <td>
+            <font color="white">Price $</font>
+          </td>
+          <td colspan="2" width="100">
+            <font color="white">Action</font>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

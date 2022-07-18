@@ -1,0 +1,51 @@
+@import url(../styles/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+@import url(../blocks/page/page.css);
+@import url(../blocks/section/section.css);
+
+@import url(../blocks/table-of-colors/table-of-colors.css);
+@import url(../blocks/table-of-colors/table-of-colors__container.css);
+@import url(../blocks/table-of-colors/__title/table-of-colors__title-container.css);
+@import url(../blocks/table-of-colors/__title/table-of-colors__title.css);
+@import url(../blocks/table-of-colors/__title/table-of-colors__icon_container.css);
+@import url(../blocks/table-of-colors/__title/table-of-colors__icon.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table_color.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table_name.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table_other-cells.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table_cells.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-color.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-name.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-type.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-code.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-change.css);
+@import url(../blocks/table-of-colors/__table_cells/table-of-colors__table_cell-delete.css);
+@import url(../blocks/table-of-colors/__button-add/table-of-colors__button-container.css);
+@import url(../blocks/table-of-colors/__button-add/table-of-colors__button-add.css);
+
+@import url(../blocks/window-3D/window-3D.css);
+@import url(../blocks/window-3D/__title/window-3D__title.css);
+@import url(../blocks/window-3D/__screen/window-3D__screen.css);
+@import url(../blocks/window-3D/__circle/window-3D__stage.css);
+@import url(../blocks/window-3D/__circle/window-3D__circle.css);
+@import url(../blocks/window-3D/__circle/window-3D__shadow.css);
+
+@import url(../blocks/colorizer/colorizer.css);
+@import url(../blocks/colorizer/__title/colorizer__title.css);
+@import url(../blocks/colorizer/__menu/colorizer__menu.css);
+@import url(../blocks/colorizer/__menu/colorizer__menu_container.css);
+@import url(../blocks/colorizer/__menu/colorizer__menu_name-field.css);
+@import url(../blocks/colorizer/__menu_input-name/colorizer__menu_input-name.css);
+@import url(../blocks/colorizer/__menu_input-name/colorizer__menu_input-name_text.css);
+@import url(../blocks/colorizer/__picker/colorizer__picker_container.css);
+@import url(../blocks/colorizer/__color-addition/colorizer__color-addition.css);
+@import url(../blocks/colorizer/__choose-color/colorizer__color-container.css);
+@import url(../blocks/colorizer/__choose-color/colorizer__choose-color_color.css);
+@import url(../blocks/colorizer/__choose-color/colorizer__choose-color_hex.css);
+@import url(../blocks/colorizer/__choose-color/colorizer__choose-color_color-number.css);
+@import url(../blocks/colorizer/__choose-rgb/colorizer__container-for-choose-rgb.css);
+
+@import url(../blocks/colorizer/__choose-in-color-set/colorizer__container-for-choose_color-set.css);
+
+@import url(../blocks/colorizer/__add-button/colorizer__add-button.css);
+@import url(../blocks/colorizer/__add-button/colorizer__add-button_text.css);
