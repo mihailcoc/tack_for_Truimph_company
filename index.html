@@ -34,27 +34,9 @@
                             <td><h4 class="table-of-colors__table_cell-type">base</h4></td>
                             <td><div class="table-of-colors__table_cell-code">#86EAE9</div></td>
                             <td><div class="table-of-colors__table_cell-change">&#128393</div></td>
-                            <script>
-                                var tds = document.querySelectorAll('td');
-                                for (var i=4; i < tds.length; i=i+5){
-                                    tds[i].addEventListener('click', function func(){
-                                         var input = document.createElement('input');
-                                         input.value = this.innerHTML;
-                                         this.innerHTML = '';
-                                         this.appendChild(input);
 
-                                         var td = this;
-                                         input.addEventListener('blur', function(){
-                                            td.innerHTML = this.value;
-                                            td.addEventListener('click', func);
-                                         });
+                            <td><table-cell>&#128465</table-cell></td>
 
-                                         this.removeEventListener('click',func);
-                                    });
-                                }
-
-                            </script>
-                            <td><div class="table-of-colors__table_cell-delete">&#128465</div></td>
                         </tr>
                     </table>
                 </div>
@@ -145,6 +127,52 @@
             <script type="text/javascript">
                 picker.init();
             </script>
+            <script>
+                var tds = document.querySelectorAll('td');
+                for (var i=4; i < tds.length; i=i+5){
+                    tds[i].addEventListener('click', function func(){
+                         var input = document.createElement('input');
+                         input.value = this.innerHTML;
+                         this.innerHTML = '';
+                         this.appendChild(input);
+
+                         var td = this;
+                         input.addEventListener('blur', function(){
+                            td.innerHTML = this.value;
+                            td.addEventListener('click', func);
+                         });
+
+                         this.removeEventListener('click',func);
+                    });
+                }
+
+            </script>
+            <script>
+                class TableCell extends HTMLElement {
+                    connectedCallback(){
+                        alert('hi from custom element')
+                        document.addEventListener('mousedown', console.log('My custom elements still works'))
+                        document.addEventListener('mouseup', console.log('My custom elements works'))
+                    }
+                }
+                if (!customElements.get('table-cell')) {
+                    customElements.define('table-cell', TableCell)
+                }
+            </script>
+            <style>
+                table-cell{
+                    width:20px;
+                    height:20px;
+                    color:#8d8d8d;
+                    margin-top:auto;
+                    margin-bottom:auto;
+                    margin-left:40px;
+                    margin-right:auto;
+                }
+                table-cell:hover{
+                    color:#CA4C4c;
+                }
+            </style>
             <div class="colorizer__add-button">
                 <h6 class="colorizer__add-button_text">Добавить</h6>
             </div>
