@@ -62,30 +62,27 @@
                 </div>
                 <div class="colorizer__menu_container">
                     <h4 class="colorizer__menu_name-field">Выберите тип</h4>
-                            <select id="selectID" class="colorizer__menu_input-name">
-                                <option value="MAIN"><div class="colorizer__menu_input-field">main</div></option>
-                                <option value="PRIMARY"><div class="colorizer__menu_input-field">Primary</div></option>
-                                <option value="SECONDARY"><div class="colorizer__menu_input-field">Secondary</div></option>
-                                <option value="BASE"><div class="colorizer__menu_input-field">Base</div></option>
-                            </select>
+                    <select id="selectID" class="colorizer__menu_input-name">
+                        <option value="MAIN"><div class="colorizer__menu_input-field">main</div></option>
+                        <option value="PRIMARY"><div class="colorizer__menu_input-field">Primary</div></option>
+                        <option value="SECONDARY"><div class="colorizer__menu_input-field">Secondary</div></option>
+                        <option value="BASE"><div class="colorizer__menu_input-field">Base</div></option>
+                    </select>
                 </div>
             </div>
             <div class="colorizer__color-addition">
                 <div class="colorizer__picker_container">
                     <div class="picker" id="primary_block" >
-
                         <div id="line">
                           <div id="arrows">
                             <div class="left_arrow"></div>
                             <div class="right_arrow"></div>
                           </div>
                         </div>
-
                         <div id="block_picker">
                           <img src="https://lh3.googleusercontent.com/-8Dm4nhAOssQ/T_IqwyIFXmI/AAAAAAAAACA/4QKmS7s_otE/s256/bgGradient.png" class="bk_img">
                           <div class="circle" id="circle"></div>
                         </div>
-
                     </div>
                 </div>
                 <div class="colorizer__color-container">
@@ -94,7 +91,6 @@
                         <div class="colorizer__choose-color_hex_text">
                             HEX
                         </div>
-
                     </div>
                     <div class="colorizer__choose-color_color-number">
                         <div class="colorizer__choose-color_color-number_text">
@@ -117,68 +113,58 @@
                         <div class="colorizer__container-for-choose-rgb_digits">0.01</div>
                     </div>
                 </div>
-                <div>
-                    
-                </div>
-            </div>
+            <div>
+        </div>
+        <script type="text/javascript" src="picker.js"></script>
+        <script type="text/javascript">
+            picker.init();
+        </script>
+        <script>
+            var tds = document.querySelectorAll('td');
+            for (var i=4; i < tds.length; i=i+5){
+                tds[i].addEventListener('click', function func(){
+                    var input = document.createElement('input');
+                    input.value = this.innerHTML;
+                    this.innerHTML = '';
+                    this.appendChild(input);
 
-
-            <script type="text/javascript" src="picker.js"></script>
-            <script type="text/javascript">
-                picker.init();
-            </script>
-            <script>
-                var tds = document.querySelectorAll('td');
-                for (var i=4; i < tds.length; i=i+5){
-                    tds[i].addEventListener('click', function func(){
-                         var input = document.createElement('input');
-                         input.value = this.innerHTML;
-                         this.innerHTML = '';
-                         this.appendChild(input);
-
-                         var td = this;
-                         input.addEventListener('blur', function(){
-                            td.innerHTML = this.value;
-                            td.addEventListener('click', func);
-                         });
-
-                         this.removeEventListener('click',func);
+                    var td = this;
+                    input.addEventListener('blur', function(){
+                    td.innerHTML = this.value;
+                    td.addEventListener('click', func);
                     });
+                    this.removeEventListener('click',func);
+                });
+            }
+        </script>
+        <script>
+            class TableCell extends HTMLElement {
+                connectedCallback(){
+                    alert('hi from custom element')
+                    document.addEventListener('mousedown', console.log('My custom elements still works'))
+                    document.addEventListener('mouseup', console.log('My custom elements works'))
                 }
-
-            </script>
-            <script>
-                class TableCell extends HTMLElement {
-                    connectedCallback(){
-                        alert('hi from custom element')
-                        document.addEventListener('mousedown', console.log('My custom elements still works'))
-                        document.addEventListener('mouseup', console.log('My custom elements works'))
-                    }
-                }
-                if (!customElements.get('table-cell')) {
-                    customElements.define('table-cell', TableCell)
-                }
-            </script>
-            <style>
-                table-cell{
-                    width:20px;
-                    height:20px;
-                    color:#8d8d8d;
-                    margin-top:auto;
-                    margin-bottom:auto;
-                    margin-left:40px;
-                    margin-right:auto;
-                }
-                table-cell:hover{
-                    color:#CA4C4c;
-                }
-            </style>
-            <div class="colorizer__add-button">
-                <h6 class="colorizer__add-button_text">Добавить</h6>
-            </div>
+            }
+            if (!customElements.get('table-cell')) {
+                customElements.define('table-cell', TableCell)
+            }
+        </script>
+        <style>
+            table-cell{
+                width:20px;
+                height:20px;
+                color:#8d8d8d;
+                margin-top:auto;
+                margin-bottom:auto;
+                margin-left:40px;
+                margin-right:auto;
+            }
+            table-cell:hover{
+                color:#CA4C4c;
+            }
+        </style>
+        <div class="colorizer__add-button">
+            <h6 class="colorizer__add-button_text">Добавить</h6>
         </div>
     </body>
-    <script>
-
-    </script>
 </html>
