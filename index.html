@@ -19,30 +19,17 @@
                     </div>
                 </div>
                 <div class="table-of-colors__container">
-                    <table class="table-of-colors__table" align=center border=1 cellspacing=0 cellpadding=0>
-                        <tr>
-                            <th class="table-of-colors__table_color"><h4 class="table-of-colors__table_cell">Цвет</h4></th>
-                            <th class="table-of-colors__table_name"><h4 class="table-of-colors__table_cell">Название</h4></th>
-                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Тип</h4></th>
-                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Код</h4></th>
-                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Изменить</h4></th>
-                            <th class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Удалить</h4></th>
-                        </tr>
-                        <tr class="table-of-colors__table_color">
-                            <td><div class="table-of-colors__table_cell-color"></div></td>
-                            <td><h4 class="table-of-colors__table_cell-name">Мятное утро</h4></td>
-                            <td><h4 class="table-of-colors__table_cell-type">base</h4></td>
-                            <td><div class="table-of-colors__table_cell-code">#86EAE9</div></td>
-                            <td><div class="table-of-colors__table_cell-change">&#128393</div></td>
-
-                            <td><table-cell>&#128465</table-cell></td>
-
-                        </tr>
-                    </table>
+                    <div class="table-of-colors__table_line">
+                        <div class="table-of-colors__table_color"><h4 class="table-of-colors__table_cell">Цвет</h4></div>
+                        <div class="table-of-colors__table_name"><h4 class="table-of-colors__table_cell">Название</h4></div>
+                        <div class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Тип</h4></div>
+                        <div class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Код</h4></div>
+                        <div class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Изменить</h4></div>
+                        <div class="table-of-colors__table_other-cells"><h4 class="table-of-colors__table_cell">Удалить</h4></div>
+                    </div>
+                    <div class="table-of-colors__table" id="todo-list"></div>
                 </div>
-                <button class="table-of-colors__button-container">
-                    <div class="table-of-colors__button-add">Добавить цвет</div>
-                </button>
+                <add-todo id="add-todo"></add-todo>
             </div>
             <div class="window-3D">
                 <h3 class="window-3D__title">Окно-3Д</h3>
@@ -115,56 +102,36 @@
                 </div>
             <div>
         </div>
-        <script type="text/javascript" src="picker.js"></script>
-        <script type="text/javascript">
-            picker.init();
-        </script>
-        <script>
-            var tds = document.querySelectorAll('td');
-            for (var i=4; i < tds.length; i=i+5){
-                tds[i].addEventListener('click', function func(){
-                    var input = document.createElement('input');
-                    input.value = this.innerHTML;
-                    this.innerHTML = '';
-                    this.appendChild(input);
+    </div>
+    <div class="colorizer__add-button">
+        <h6 class="colorizer__add-button_text">Добавить</h6>
+    </div>
+    <script type="text/javascript" src="picker.js"></script>
+    <script type="text/javascript">
+        picker.init();
+    </script>
+    <script src="./app.js"></script>
+    <script src="./components/addTodo.js"></script>
+    <script src="./components/todoItem.js"></script>
+    <script src="./components/todoButton.js"></script>
+    <script src="./components/deleteButton.js"></script>
+    <script>
+        var tds = document.querySelectorAll('td');
+        for (var i=4; i < tds.length; i=i+5){
+            tds[i].addEventListener('click', function func(){
+                var input = document.createElement('input');
+                input.value = this.innerHTML;
+                this.innerHTML = '';
+                this.appendChild(input);
 
-                    var td = this;
-                    input.addEventListener('blur', function(){
-                    td.innerHTML = this.value;
-                    td.addEventListener('click', func);
-                    });
-                    this.removeEventListener('click',func);
+                var td = this;
+                input.addEventListener('blur', function(){
+                td.innerHTML = this.value;
+                td.addEventListener('click', func);
                 });
-            }
-        </script>
-        <script>
-            class TableCell extends HTMLElement {
-                connectedCallback(){
-                    alert('hi from custom element')
-                    document.addEventListener('mousedown', console.log('My custom elements still works'))
-                    document.addEventListener('mouseup', console.log('My custom elements works'))
-                }
-            }
-            if (!customElements.get('table-cell')) {
-                customElements.define('table-cell', TableCell)
-            }
-        </script>
-        <style>
-            table-cell{
-                width:20px;
-                height:20px;
-                color:#8d8d8d;
-                margin-top:auto;
-                margin-bottom:auto;
-                margin-left:40px;
-                margin-right:auto;
-            }
-            table-cell:hover{
-                color:#CA4C4c;
-            }
-        </style>
-        <div class="colorizer__add-button">
-            <h6 class="colorizer__add-button_text">Добавить</h6>
-        </div>
+                this.removeEventListener('click',func);
+            });
+        }
+    </script>
     </body>
 </html>

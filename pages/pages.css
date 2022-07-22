@@ -8,6 +8,7 @@
 @import url(../blocks/table-of-colors/__title/table-of-colors__icon_container.css);
 @import url(../blocks/table-of-colors/__title/table-of-colors__icon.css);
 @import url(../blocks/table-of-colors/__table-head/table-of-colors__table.css);
+@import url(../blocks/table-of-colors/__table-head/table-of-colors__table_line.css);
 @import url(../blocks/table-of-colors/__table-head/table-of-colors__table_color.css);
 @import url(../blocks/table-of-colors/__table-head/table-of-colors__table_name.css);
 @import url(../blocks/table-of-colors/__table-head/table-of-colors__table_other-cells.css);

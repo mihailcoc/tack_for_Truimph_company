@@ -1,6 +1,8 @@
 .table-of-colors__table_name {
-    width: 134px;
-    height:54px;
-    color:#424242;
-    background-color: #424242;
-  }
+  width: 134px;
+  height:54px;
+  color:#424242;
+  background-color: #424242;
+  border:1px #333333;
+  border-right:1px solid #333333;
+}
